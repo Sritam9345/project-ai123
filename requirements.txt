@@ -1,0 +1,10 @@
+python-multipart
+scikit-learn
+sentence-transformers
+presidio-anonymizer
+presidio-analyzer
+openai
+tiktoken
+pymupdf
+fastapi
+uvicorn

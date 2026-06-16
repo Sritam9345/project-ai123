@@ -4,6 +4,7 @@ import shutil
 import os
 from generateEmb import embeddings
 from summarizer import generateResponse
+from summarizerv2 import generateResponse as generateResponsev2
 from pydantic import BaseModel
 
 app = FastAPI()
@@ -32,3 +33,12 @@ def generateEmbeddings(chunks:ChunkRequest):
     return {
         "embeddings": embeds.tolist()
     }
+
+@app.post('/upload-pdf-v2')
+async def upload_pdf(
+    pdf: UploadFile = File(...)
+):
+    
+    response = await generateResponsev2(pdf)
+    
+    return response
